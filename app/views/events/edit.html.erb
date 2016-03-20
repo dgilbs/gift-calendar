@@ -1,0 +1,9 @@
+<h1>Edit Event</h1>
+<%=form_for @event do |f|%>
+<p><%=f.label :name%>
+<%=f.text_field :name%></p>
+<p><%=f.label "Date(YYYY-MM-DD)"%>
+<%=f.text_field :date%></p>
+<p><%=f.label :notes%>
+<%=f.text_area :notes%></p>
+<%end%>

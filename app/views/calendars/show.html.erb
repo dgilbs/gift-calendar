@@ -1,0 +1,6 @@
+<%=@calendar.name%>
+<ul>
+<%@calendar.events.each do |event|%>
+  <li><%=event.name%></li>
+<%end%>
+</ul>

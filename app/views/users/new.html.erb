@@ -1,0 +1,13 @@
+<h1 align="center">Create a new profile </h1>
+<div align="center"><%=form_for @user do |f|%>
+<%=f.label :name%>
+<%=f.text_field :name %><br>
+<%=f.label :email%>
+<%=f.text_field :email %><br>
+<%=f.label :password%>
+<%=f.text_field :password, type: "password"%><br>
+<%=f.label :password_confirmation%>
+<%=f.text_field :password_confirmation%>
+<%=f.submit%>
+<%end%>
+</div>
