@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   resources :events
   resources :calendars
   resources :users
+  resources :sessions
+
+  root to: 'calendars#index'
+  get 'signup', :to => 'users#new', as: 'signup'
+  get 'login', :to=> 'sessions#new', as: 'login'
+  delete 'calendars/:id', :to => 'calendars#destroy', as: 'destroy_calendar'
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

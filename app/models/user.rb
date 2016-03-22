@@ -11,6 +11,7 @@
 #
 
 class User < ActiveRecord::Base
+  has_secure_password
   has_many :calendars
   has_many :events, through: :calendars
   validates_presence_of :name, :email, :password

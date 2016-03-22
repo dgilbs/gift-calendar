@@ -1,8 +1,10 @@
 class EventsController < ApplicationController
+  before_filter :authorize
 
   def new
     @event=Event.new
-    @calendars=Calendar.all
+    @user=User.find(session[:user_id])
+    @calendars=@user.calendars
   end
 
   def create
@@ -29,6 +31,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @event=Event.find(params[:id])
   end 
 
   def destroy

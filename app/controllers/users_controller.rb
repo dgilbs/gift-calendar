@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  has_secure_password
+
 
   def new
     @user=User.new
@@ -8,8 +8,9 @@ class UsersController < ApplicationController
   def create
     @user=User.new(user_params)
     if @user.valid?
+      session[:user_id] = @user.id
       @user.save
-      redirect_to @user 
+      redirect_to calendars_path
     else
       render :new
     end

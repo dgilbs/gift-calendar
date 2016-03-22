@@ -1,0 +1,11 @@
+<h1 align="center">Edit <%=@calendar.name%></h1>
+<div align="center"><%=form_for @calendar do |f|%>
+<%=f.label :name%>
+<%=f.text_field :name%><br>
+<%=f.label :description%>
+<%=f.text_area :description%><br>
+<%=f.submit%>
+<%end%>
+</div>
+
+<%=link_to "Delete This Calendar", destroy_calendar_path(@calendar), method: 'delete'%>

@@ -1,0 +1,9 @@
+Your calendars: 
+<ul>
+<%@calendars.each do |calendar|%>
+<li><%=link_to calendar.name, calendar_path(calendar)%></li>
+<%end%>
+</ul>
+
+<%=link_to "Create a New Calendar", new_calendar_path%>
+
