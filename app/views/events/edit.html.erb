@@ -1,9 +1,12 @@
 <h1>Edit Event</h1>
 <%=form_for @event do |f|%>
+<%=f.collection_select :calendar_id, @calendars, :id, :name%>
 <p><%=f.label :name%>
 <%=f.text_field :name%></p>
 <p><%=f.label "Date(YYYY-MM-DD)"%>
 <%=f.text_field :date%></p>
 <p><%=f.label :notes%>
 <%=f.text_area :notes%></p>
+<%=f.submit%>
+<%=link_to "Delete This Event", destroy_event_path(@event)%>
 <%end%>

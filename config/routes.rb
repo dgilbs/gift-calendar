@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'signup', :to => 'users#new', as: 'signup'
   get 'login', :to=> 'sessions#new', as: 'login'
   delete 'calendars/:id', :to => 'calendars#destroy', as: 'destroy_calendar'
+  delete 'events/:id', :to => 'events#destroy', as: 'destroy_event'
 
   
   # The priority is based upon order of creation: first created -> highest priority.

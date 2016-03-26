@@ -22,9 +22,19 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @event = Event.find(params[:id])
+    @user = User.find(session[:user_id])
+    @calendars = @user.calendars
   end
 
   def update 
+    @event = Event.find(params[:id])
+    @event.calendar = Calendar.find(params[:event][:calendar_id])
+    if @event.update(event_params)
+      redirect_to @event 
+    else
+      render :edit
+    end
   end 
 
   def index
@@ -35,6 +45,9 @@ class EventsController < ApplicationController
   end 
 
   def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to root
   end
 
   private
