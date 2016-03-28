@@ -22,4 +22,11 @@ class User < ActiveRecord::Base
       event.date > Time.now
     end
   end
+
+  def past_events
+    self.events.select do |event|
+      event.date < Time.now
+    end
+  end
 end
+

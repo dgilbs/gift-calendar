@@ -47,6 +47,9 @@ class CalendarsController < ApplicationController
     redirect_to calendars_path, notice: "@calendar_name has been deleted."
   end
 
+
+  private
+
   def calendar_params
     params.require(:calendar).permit(:name, :description)
   end
