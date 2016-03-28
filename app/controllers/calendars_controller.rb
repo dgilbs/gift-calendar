@@ -37,6 +37,7 @@ class CalendarsController < ApplicationController
 
   def show
     @calendar=Calendar.find(params[:id])
+    @events = @calendar.upcoming_events.sort_by{|event| event.date}
   end 
 
   def destroy

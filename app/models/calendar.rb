@@ -14,4 +14,10 @@ class Calendar < ActiveRecord::Base
   belongs_to :user
   has_many :events
   validates_presence_of :name
+
+  def upcoming_events
+    self.events.select do |event|
+      event.date > Time.now
+    end
+  end
 end

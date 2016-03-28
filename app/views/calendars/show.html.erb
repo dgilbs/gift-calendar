@@ -1,6 +1,7 @@
-<%=@calendar.name%>
+<h2><%=@calendar.name%></h2><br>
+<h4><%=@calendar.description%></h4>
 <ul>
-<%@calendar.events.each do |event|%>
+<%@events.each do |event|%>
   <li><%=link_to event.name, event_path(event)%></li>
 <%end%>
 </ul>

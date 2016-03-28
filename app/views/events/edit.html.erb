@@ -1,4 +1,4 @@
-<h1>Edit Event</h1>
+<h3>Edit Event</h3>
 <%=form_for @event do |f|%>
 <%=f.collection_select :calendar_id, @calendars, :id, :name%>
 <p><%=f.label :name%>
@@ -7,6 +7,6 @@
 <%=f.text_field :date%></p>
 <p><%=f.label :notes%>
 <%=f.text_area :notes%></p>
-<%=f.submit%>
-<%=link_to "Delete This Event", destroy_event_path(@event)%>
+<%=f.submit%><br><br>
+<%=link_to "Delete This Event", destroy_event_path(@event), method: "delete"%>
 <%end%>

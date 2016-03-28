@@ -1,9 +1,9 @@
 <%=@event.name%>
 <ul>
-<li><%=@event.date%></li>
+<li><%=@event.date.strftime("%B")%> <%=@event.date.strftime("%e")%></li>
 <li><%=@event.notes%></li>
 </ul>
 
-This event is currently in your <%=@event.calendar.name%> calendar.
+This event is currently in your <%=link_to @event.calendar.name, @event.calendar%> calendar.
 
 <%=link_to "Edit this Event", edit_event_path(@event)%>

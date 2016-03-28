@@ -10,8 +10,11 @@ class EventsController < ApplicationController
   def create
     @calendar=Calendar.find(params[:event][:calendar_id])
     @event=Event.new(event_params)
+
+    user = User.find(session[:user_id])
     if @event.valid?
       @event.calendar=@calendar
+      @event.user = user
       @event.save
       redirect_to @calendar 
     else
@@ -46,8 +49,9 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
+    @calendar = @event.calendar
     @event.destroy
-    redirect_to root
+    redirect_to @calendar
   end
 
   private
