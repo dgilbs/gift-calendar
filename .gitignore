@@ -18,3 +18,4 @@
 
 #Ignore the files with passwords
 /config/secrets.yml
+/config/environments/development.rb

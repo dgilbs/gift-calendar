@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user=User.new(user_params)
     if @user.valid?
       session[:user_id] = @user.id
+      UserMailer.welcome_email(@user).deliver      
       @user.save
       redirect_to calendars_path
     else

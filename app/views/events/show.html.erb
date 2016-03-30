@@ -1,6 +1,6 @@
 <%=@event.name%>
 <ul>
-<li><%=@event.date.strftime("%B")%> <%=@event.date.strftime("%e")%></li>
+<li><%=@event.date.strftime("%B")%> <%=@event.date.strftime("%e")%>, <%= @event.date.strftime("%Y") %></li>
 <li><%=@event.notes%></li>
 </ul>
 

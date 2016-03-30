@@ -15,6 +15,8 @@ class EventsController < ApplicationController
     if @event.valid?
       @event.calendar=@calendar
       @event.user = user
+      reminder_date = @event.date.to_datetime - 7.days + 11.hours
+      EventMailer.reminder_email(@event).deliver_later!(wait_until: reminder_date)
       @event.save
       redirect_to @calendar 
     else
