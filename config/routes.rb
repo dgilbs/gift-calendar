@@ -3,13 +3,14 @@ Rails.application.routes.draw do
 
   resources :events
   resources :calendars
-  resources :users
+  resources :users do
+    get 'past_events'
+  end
   resources :sessions
 
   root to: 'calendars#index'
   get 'signup', :to => 'users#new', as: 'signup'
   get 'login', :to=> 'sessions#new', as: 'login'
-  get 'pastevents', :to=> 'users#past_events', as: "past_events"
   delete 'calendars/:id', :to => 'calendars#destroy', as: 'destroy_calendar'
   delete 'events/:id', :to => 'events#destroy', as: 'destroy_event'
 

@@ -26,10 +26,10 @@ class UsersController < ApplicationController
   def index
   end
 
-  def past_events
-    @user = User.find(session[:user_id])
-    @events = @user.past_events.sort_by{|event| event.date}
-  end
+  # def past_events
+  #   @user = User.find(session[:user_id])
+  #   @events = @user.past_events.sort_by{|event| event.date}
+  # end
 
   def show
     @user=User.find(params[:id])

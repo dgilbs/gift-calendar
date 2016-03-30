@@ -1,8 +1,21 @@
-<%=@event.name%>
+
+
+<p><%=@event.name%> will happen on <%=@event.date.strftime("%B")%> <%=@event.date.strftime("%e")%>, <%= @event.date.strftime("%Y") %><p>
+
+<% if @notes.any?%>
+<p>You have saved the following notes for this event</p>
 <ul>
-<li><%=@event.date.strftime("%B")%> <%=@event.date.strftime("%e")%>, <%= @event.date.strftime("%Y") %></li>
-<li><%=@event.notes%></li>
+<%@notes.each do |note|%>
+<li><%=note.content%></li>
+<%end%>
 </ul>
+<%else%>
+<p>You do not have any notes saved for this event yet! Add some today!</p>
+<%end%>
+
+
+
+
 
 This event is currently in your <%=link_to @event.calendar.name, @event.calendar%> calendar.
 

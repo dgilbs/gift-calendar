@@ -1,5 +1,6 @@
+<%@user = User.find(session[:user_id])%>
 <ul>
-<%@events.each do |event|%>
+<%@user.past_events.each do |event|%>
 <li><%=link_to event.name, event_path(event)%></li>
 <%end%>
 </ul>
