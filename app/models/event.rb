@@ -26,8 +26,21 @@ class Event < ActiveRecord::Base
     end
   end
 
-  def content_notes
-    self.notes.select{|note| note if (note.content != "")}
+  def user_events
+    self.user.events
   end
+
+  def conflicts
+    self.user_events.select do |event|
+      (event.date == self.date) && event != self
+    end
+  end
+
+  def note_content
+    self.notes.map do |note|
+      note.content
+    end
+  end
+
 
 end

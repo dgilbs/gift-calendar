@@ -20,4 +20,26 @@ class Calendar < ActiveRecord::Base
       event.date > Time.now
     end
   end
+
+  def past_events
+    self.events.select do |event|
+      event.date < Time.now
+    end
+  end
+
+  def next_event
+    all = self.upcoming_events.sort_by{|event| event.date}
+    all.first
+  end
+
+  def most_recent_event
+    past = self.past_events.sort_by{|event| event.date}
+    past.last
+  end
+
+  def calendar_notes
+    self.events.map do |event|
+      event.note_content
+    end.flatten
+  end
 end

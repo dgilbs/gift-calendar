@@ -28,5 +28,15 @@ class User < ActiveRecord::Base
       event.date < Time.now
     end
   end
+
+  def next_event
+    all = self.upcoming_events.sort_by{|event| event.date}
+    all.first
+  end
+
+  def most_recent_event
+    past = self.past_events.sort_by{|event| event.date}
+    past.last
+  end
 end
 

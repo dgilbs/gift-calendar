@@ -1,6 +1,6 @@
 
 
-<p><%=@event.name%> will happen on <%=@event.date.strftime("%B")%> <%=@event.date.strftime("%e")%>, <%= @event.date.strftime("%Y") %><p>
+<p><%=@event.name%>: <%=@event.date.strftime("%B")%> <%=@event.date.strftime("%e")%>, <%= @event.date.strftime("%Y") %><p>
 
 <% if @notes.any?%>
 <p>You have saved the following notes for this event</p>
@@ -17,6 +17,6 @@
 
 
 
-This event is currently in your <%=link_to @event.calendar.name, @event.calendar%> calendar.
+<p>This event is currently in your <%=link_to @event.calendar.name, @event.calendar%> calendar.</p><br>
 
 <%=link_to "Edit this Event", edit_event_path(@event)%>

@@ -3,8 +3,8 @@
 <%=f.collection_select :calendar_id, @user.calendars, :id, :name%>
 <p><%=f.label :name%>
 <%=f.text_field :name%></p>
-<p><%=f.label "Date(YYYY-MM-DD)"%>
-<%=f.text_field :date%></p>
+<p><%=f.label :date%>
+<%=f.date_field :date%></p>
 <%=f.label "Notes"%><br>
 <%=f.fields_for :notes do |note|%>
 <%=note.text_area :content%><br><br><br>
