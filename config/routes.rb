@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   get 'login', :to=> 'sessions#new', as: 'login'
   delete 'calendars/:id', :to => 'calendars#destroy', as: 'destroy_calendar'
   delete 'events/:id', :to => 'events#destroy', as: 'destroy_event'
-  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/facebook', to: 'sessions#create', as: 'use_facebook'
+  get 'sessions/auth/:provider/callback', to: 'sessions#create', as: 'facebook_login'
   get 'logout', to: 'sessions#destroy'
 
   
