@@ -14,9 +14,7 @@
     <%=link_to "My Calendars", calendars_path%>
     <%=link_to "Log Out", session_path("current"), method: "delete"%>
   <%else%>
-    <%=link_to "Sign Up", signup_path%> 
-    <%=link_to "Log In", login_path%>, or
-    <li><%= link_to 'Facebook', '/auth/facebook' %></li>
+    <%= link_to 'Log in With Facebook', '/auth/facebook' %>
   <%end%>
 
   </div>
