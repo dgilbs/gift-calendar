@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'signup', :to => 'users#new', as: 'signup'
   get 'login', :to=> 'sessions#new', as: 'login'
   delete 'calendars/:id', :to => 'calendars#destroy', as: 'destroy_calendar'
+  get 'auth/:provider/callback', to: 'sessions#create', as: 'facebook_login'
   delete 'events/:id', :to => 'events#destroy', as: 'destroy_event'
 
   
