@@ -1,6 +1,7 @@
-<h1>Create a New Event</h1>
-<%=form_for @event do |f|%>
-<%=f.collection_select :calendar_id, @user.calendars, :id, :name%>
+<h1 class="event_headline">Create a New Event</h1>
+<div class="event_form"><%=form_for @event do |f|%>
+<p>Which calendar is this event for?</p>
+<%=f.collection_select :calendar_id, @user.calendars, :id, :name%><br><br>
 <p><%=f.label :name%>
 <%=f.text_field :name%></p>
 <p><%=f.label :date%>
@@ -9,6 +10,7 @@
 <%=f.fields_for :notes do |note|%>
 <%=note.text_area :content%><br><br><br>
 <%end%>
-<%=f.submit%>
+<button class="submit-btn">Create Event</button>
 <%end%>
+<div>
 

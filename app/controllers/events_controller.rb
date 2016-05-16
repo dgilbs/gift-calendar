@@ -17,7 +17,7 @@ class EventsController < ApplicationController
       @event.calendar=@calendar
       @event.user = user
       reminder_date = (@event.date.to_datetime - 7.days)
-      EventMailer.reminder_email(@event).deliver_later!(wait_until: reminder_date)
+      # EventMailer.reminder_email(@event).deliver_later!(wait_until: reminder_date)
       @event.save
       redirect_to @calendar 
     else
@@ -52,7 +52,7 @@ class EventsController < ApplicationController
 
   def show
     @event=Event.find(params[:id])
-    @notes = @event.content_notes
+    @notes = @event.notes
   end 
 
   def destroy
