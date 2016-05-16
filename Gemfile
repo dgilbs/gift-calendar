@@ -33,6 +33,9 @@ gem 'actionmailer'
 gem 'figaro'
 gem 'omniauth-facebook'
 
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
