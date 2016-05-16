@@ -1,9 +1,27 @@
 
-.new_calendar_headline{
+.calendar_headline{
   text-align: center
 }
 
-.new_calendar_form {
-   width: 100%; text-align: center;
+.calendar_form {
+   width: 100%; 
+   text-align: center;
 }
 
+.submit-btn{
+  background: #003300;
+  font-size: 20px;
+  color: white; 
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.delete_path{
+  text-align: center
+}
+
+.delete_path a{
+  text-align: center;
+  color: #800000;
+}

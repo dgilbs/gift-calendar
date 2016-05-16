@@ -1,9 +1,10 @@
-<h1 class="new_calendar_headline">Create a new calendar</h1>
-<div class="new_calendar_form"><%=form_for @calendar do |f|%>
+<h1 class="calendar_headline">Create a new calendar</h1>
+
+<div class="calendar_form"><%=form_for @calendar do |f|%>
 <%=f.label :name%>
 <%=f.text_field :name%><br>
 <%=f.label :description%>
 <%=f.text_area :description%><br>
-<%=f.submit%>
+<button class="submit-btn">Create Calendar</button>
 <%end%>
 </div>
