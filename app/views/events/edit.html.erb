@@ -1,5 +1,6 @@
-<h1 class="event_headline">Create a New Event</h1>
+<h1 class="event_headline">Update <%= @event.name %></h1>
 <div class="event_form"><%=form_for @event do |f|%>
+<p>Which calendar is this event for?</p>
 <%=f.collection_select :calendar_id, @calendars, :id, :name%>
 <p><%=f.label :name%>
 <%=f.text_field :name%></p>
@@ -9,7 +10,7 @@
 <%=f.fields_for :notes do |note|%>
 <%=note.text_area :content%><br><br><br>
 <%end%>
-<%=f.submit%><br>
+<button class="submit-btn">Update Event </button><br>
 </div>
 <p class="delete_path"><%=link_to "Delete This Event", destroy_event_path(@event), method: "delete"%></p>
 <%end%>
